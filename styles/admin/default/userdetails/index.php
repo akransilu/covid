@@ -1,7 +1,7 @@
-<ol class="breadcrumb pull-right">
-    <li><a href="<?php echo site_url('teacher/dashboard') ?>">Home</a></li>
-</ol>
-<h1 class="page-header">Payments</h1>
+<!-- <ol class="breadcrumb pull-right">
+    <li><a href="<?php //echo site_url('admin/dashboard') ?>">Home</a></li>
+</ol> -->
+<h1 class="page-header">User Details</h1>
 
 
 <div class="panel panel-default">

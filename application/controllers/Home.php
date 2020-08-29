@@ -68,12 +68,10 @@ class Home extends CIF_Controller {
             $this->{$this->model}->risk = $risk;
             $this->{$this->model}->save();
 
-            // $this->load->view($this->module, $data);
             $this->session->set_flashdata('message', 'Form submitted successfully.');
             redirect("/");
 
         }
-        // die( json_encode(["error"=> false, "files"=> $passed_files]));
         
     }
 

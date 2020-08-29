@@ -15,10 +15,6 @@ class Login extends CI_Controller {
             ->join('user_role', 'users.user_role_id = user_role.user_role_id')
             ->get('users')->row();
 
-            // $nodes = $this->db->select('*')->from('user_node_map')->where('user_role_id', $user->user_role_id)
-            // ->join('node', 'node.node_id = user_node_map.node_id','right')
-            // ->get()->result();
-            
             $this->session->set_userdata(array(
                 'email' => $user->email,
                 'image' => $user->image,

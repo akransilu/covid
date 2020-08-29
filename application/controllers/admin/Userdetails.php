@@ -79,36 +79,57 @@ class Userdetails extends CIF_Controller {
         redirect('admin/' . $this->module);
     }
      
+    // public function exportcsv(){
+    //     $data = array();
+    //     $where = "1=1 ";
+    //     $phone = $this->input->post('phoneNo');
+    //     $from = $this->input->post('rom');
+    //     $to = $this->input->post('to');
+
+    //     if($phone != null || $phone !='')
+    //         $where += " and phoneNo=".$phone;
+    //     if($from != null || $from !='')
+    //         $where += " and createdDate >=".$from;
+    //     if($to != null || $to !='')
+    //         $where += " and createdDate <=".$to;
+        
+    //     $sql="select ud.* from user_details ud where " .$where
+    //     ." order by risk DESC, createdDate DESC";
+    //     $data=$this->db->query($sql)->result();
+       
+    //     $recordsTotal = count($data);
+    //     $recordsFiltered = $recordsTotal;
+        
+        
+    //     header('Content-Type: text/csv');
+    //     header('Content-Disposition: attachment; filename="sample.csv"');        
+
+    //     $fp = fopen('php://output', 'wb');
+    //     foreach ($data as $line) {
+    //         fputcsv($fp, $line, ',');
+    //     }
+    //     fclose($fp);
+    // }
+
     public function exportcsv(){
         $data = array();
-        $where = "1=1 ";
-        $phone = $this->input->post('phoneNo');
-        $from = $this->input->post('rom');
-        $to = $this->input->post('to');
-
-        if($phone != null || $phone !='')
-            $where += " and phoneNo=".$phone;
-        if($from != null || $from !='')
-            $where += " and createdDate >=".$from;
-        if($to != null || $to !='')
-            $where += " and createdDate <=".$to;
         
-        $sql="select ud.* from user_details ud where " .$where
+        $sql="select ud.*  from user_details ud where " .$this->input->post('where')
         ." order by risk DESC, createdDate DESC";
         $data=$this->db->query($sql)->result();
        
         $recordsTotal = count($data);
         $recordsFiltered = $recordsTotal;
         
-        
-        header('Content-Type: text/csv');
-        header('Content-Disposition: attachment; filename="sample.csv"');        
+        $json = json_encode(array(
+            "draw" => isset($iDraw) ? $iDraw : 1,
+            "recordsTotal" => $recordsTotal,
+            "recordsFiltered" => $recordsFiltered,
+            "data" => $data)
+            );
 
-        $fp = fopen('php://output', 'wb');
-        foreach ($data as $line) {
-            fputcsv($fp, $line, ',');
-        }
-        fclose($fp);
-    }
+        echo $json; 
+        exit();
+    } 
 
 }

@@ -198,36 +198,12 @@ function loadDetails() {
 
 
 function loadCSV() {
-    // var obj = getData ();
-
-    var phoneNo = $("#phoneNo").val();
-    var fdate = $("#fdate").val();
-    var tdate = $("#tdate").val();
+    var obj = getData ();
+    document.cookie = "filter=" + (obj.where || "")+ "; path=/";
    
-    var wCols = "?a=a ";
-    // if(tid != '' && tid !='0')
-    //     wCols += " and c.Teacher_ID="+tid;
-    if (phoneNo != '' && phoneNo != '0')
-        wCols += " &phoneNo=" + phoneNo;
-    if (fdate != '')
-        wCols += " &from=" + fdate ;
-    if (tdate != '')
-        wCols += " &to=" + tdate ;
-
-    // $.ajax({
-    //     type: "post",
-    //     url: 'userdetails/exportcsv',
-    //     dataType: "JSON",
-    //     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-    //     data: obj,
-    //     success: function(response) {
-            // console.log(response);
-            // var site_url = "<?php echo site_url() ?>";
-            // var page = site_url + "userdetails/exportcsv/" + wCols;
-            // window.location = page;
-        // }
-    // });
-    window.open('userdetails/exportcsv' + wCols);
+    var site_url = "<?php echo site_url() ?>";
+    var page = site_url + "admin/exportcsv/exportdetails" ;
+    window.location = page;   
 }
 
 function confirmDelete() {

@@ -48,9 +48,9 @@
 $active_group = 'default';
 $query_builder = TRUE;
     $db['default']['hostname'] = 'localhost';
-    $db['default']['username'] = 'root';
-    $db['default']['password'] = '';
-    $db['default']['database'] = 'coviddb';
+    $db['default']['username'] = 'covid642_client';
+    $db['default']['password'] = '0qA$&pUM!tcw';
+    $db['default']['database'] = 'covid642_coviddb';
     $db['default']['dbdriver'] = 'mysqli';
     $db['default']['dbprefix'] = '';
     $db['default']['pconnect'] = TRUE;

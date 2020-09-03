@@ -66,6 +66,7 @@ class Home extends CIF_Controller {
             $this->{$this->model}->covidContact = $covidContact;
             $this->{$this->model}->symptoms = $symptoms;
             $this->{$this->model}->risk = $risk;
+            $this->{$this->model}->createdDate = date("Y-m-d");
             $this->{$this->model}->save();
 
             $this->session->set_flashdata('message', 'Form submitted successfully.');

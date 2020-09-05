@@ -177,12 +177,8 @@ COVID-19 within the last 14 days?</label>
 </div>
 <footer id="footer" class="fixed">
 
-    <div class="footer-links pull-left">
-        &copy; 2020 <?php echo config('copyright') ?>.All Right Reserved |
-        <a href="<?php echo config('facebook') ?>" class="social-link-footer"><i class="fa fa-facebook"></i></a> |
-        <a href="<?php echo config('instagram') ?>" class="social-link-footer"><i class="fa fa-instagram"></i></a> | 
-        <a href="<?php echo config('youtube') ?>" class="social-link-footer"><i class="fa fa-youtube-play"></i></a> |
-        <a href="<?php echo config('twitter') ?>" class="social-link-footer"><i class="fa fa-twitter"></i></a> 
+    <div class="footer-links pull-center">
+       Solution Partner - <?php echo config('copyright') ?> &trade;
     </div>
     
 </footer>
